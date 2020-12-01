@@ -61,9 +61,7 @@ public class MovingBalls extends PApplet{
 
     public void draw(){
         background(255,255,255);
-
         int xDistance, yDistance;
-
         for (int i = 0; i < x.length; i++){
             fill(color[i][0],color[i][1],color[i][2]);
             ellipse(x[i], y[i], 50, 50);
@@ -72,7 +70,6 @@ public class MovingBalls extends PApplet{
             speedX[i] = changeSpeedX(i);
             speedY[i] = changeSpeedY(i);
 
-            if (i != x.length - 1) {
                 for(int TestLine = i; TestLine < x.length; TestLine++){
                     xDistance= x[TestLine] - x[i];
                     yDistance = y[TestLine] - y[i];
@@ -80,15 +77,8 @@ public class MovingBalls extends PApplet{
                         line(x[TestLine], y[TestLine], x[i], y[i]);
                     }
                 }
-
             }
-
         }
-
-    }
-
-
-
 
     public static void main(String[] args) {
         String[] processingArgs = {"MovingBalls"};
