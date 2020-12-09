@@ -33,22 +33,21 @@ public class BubbleSortTextProcessing extends PApplet
         delay(300);
         background(0);
 
-        if (this.i >= height.length - 1)
+        if (i >= max)
         {
             color[max][0] = 0;
             color[max][1] = 255;
             color[max][2] = 0;
-            this.i = 0;
             max--;
+            i = 0;
         }
 
 
-        color[Math.abs(this.i - 1)][0] = 255;
-        color[Math.abs(this.i - 1)][1] = 255;
-        color[Math.abs(this.i - 1)][2] = 255;
+        color[Math.abs(i - 1)][0] = 255;
+        color[Math.abs(i - 1)][1] = 255;
+        color[Math.abs(i - 1)][2] = 255;
 
-        if (i - 1 < 0)
-        {
+        if (i - 1 < 0 ){
             color[max][0] = 255;
             color[max][1] = 255;
             color[max][2] = 255;
@@ -61,17 +60,14 @@ public class BubbleSortTextProcessing extends PApplet
         color[i + 1][1] = 100;
         color[i + 1][2] = 100;
 
-        if(max - 1 < 0)
-        {
+        if(max - 1 < 0){
             color[0][0] = 0;
-            color[0][1] = 255;
+            color[0][1] = 250;
             color[0][2] = 0;
-
             color[1][0] = 0;
-            color[1][1] = 255;
+            color[1][1] = 250;
             color[1][2] = 0;
         }
-
         if (height[i] > height[i + 1])
         {
             z++;
@@ -79,20 +75,19 @@ public class BubbleSortTextProcessing extends PApplet
             {
                 z = 0;
                 color[i][0] = 0;
-                color[i][1] = 130;
+                color[i][1] = 100;
                 color[i][2] = 255;
                 color[i + 1][0] = 0;
-                color[i + 1][1] = 130;
+                color[i + 1][1] = 100;
                 color[i + 1][2] = 255;
                 if (height[i] > height[i + 1])
                 {
                     int a = height[i];
                     height[i] = height[i + 1];
                     height[i + 1] = a;
-
                     a = y[i];
                     y[i] = y[i + 1];
-                    y[i + 1] = a;
+                    y[i+1] = a;
                 }
                 i++;
             }
@@ -100,14 +95,14 @@ public class BubbleSortTextProcessing extends PApplet
         else
             {
             i++;
-            }
+        }
 
 
-        for (int i = 0; i < height.length; i++)
-        {
+        for (int i = 0; i < height.length; i++){
             fill(color[i][0],color[i][1],color[i][2]);
             rect(x[i], y[i], width, height[i]);
         }
+
     }
 
     public static void main(String[] args) {
